@@ -5,3 +5,35 @@ p {
 .formulaTop {
     color: green;
 }
+
+.fibContainer {
+	background-color: rgba(0,0,255,0.1);
+    display: flex;
+}
+
+.fib-left {
+	text-align: center;
+	margin-right: 4px;
+    display: inline;
+}
+
+.fib-right {
+	text-align: center;
+	margin-left: 4px;
+    display: inline;
+}
+
+.fib-root {
+	text-align: center;
+    background-color: rgba(0,0,255,0.1);
+    overflow:auto;
+    float: left;
+}
+
+
+#fib {
+	/*display: inline-block;
+	width: 20000px;*/
+}
+
+
