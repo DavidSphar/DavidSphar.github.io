@@ -6,24 +6,24 @@ p {
     color: green;
 }
 
-.fibContainer {
+.container {
 	background-color: rgba(0,0,255,0.1);
     display: flex;
 }
 
-.fib-left {
+.left {
 	text-align: center;
 	margin-right: 4px;
-    display: inline;
+    display: inline-block;
 }
 
-.fib-right {
+.right {
 	text-align: center;
 	margin-left: 4px;
-    display: inline;
+    display: inline-block;
 }
 
-.fib-root {
+.root {
 	text-align: center;
     background-color: rgba(0,0,255,0.1);
     overflow:auto;
