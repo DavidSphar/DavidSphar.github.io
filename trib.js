@@ -1,46 +1,53 @@
-let PELL_NUMBER = 11;
-var root = createRootDiv('PellRoot');
+let TRIB_NUMBER = 11;
+var root = createRootDiv('TribRoot');
 
-startPell(root);
+startTrib(root);
 
-function startPell(rootNode) {
-	var first = pell(PELL_NUMBER, 'root');
-	rootNode.innerHTML = "<h2>Pell</h2>";
+function startTrib(rootNode) {
+	var first = trib(TRIB_NUMBER, 'root');
+	rootNode.innerHTML = "<h2>Tribonacci</h2>";
 	rootNode.appendChild(first);
 }
 
-function pell(n, alignmentClass) {
+function trib(n, alignmentClass) {
 
 	var div = document.createElement('div');
-	div.setAttribute('class', alignmentClass + ' pell');
+	div.setAttribute('class', alignmentClass + ' trib');
 
-	if (n < 2) {
-		div.setAttribute('num', n.toString());
+	if (n < 3) {
+		if (n === 2) {
+			div.setAttribute('num', 1);;
+		} else {
+			div.setAttribute('num', n.toString());
+		}
 		var clas = div.getAttribute('class');
 		div.setAttribute('class', clas + ' container');
 	} else {
 		var container = document.createElement('div');
 		container.setAttribute('class', 'container');
 
-		var l = pell(n - 1, 'left');
+		var l = trib(n - 1, 'left');
 		container.appendChild(l);
 
+		var c = trib(n - 2, 'center');
+		container.appendChild(c);
 
-		var r = pell(n - 2, 'right');
+
+		var r = trib(n - 3, 'right');
 		container.appendChild(r);
 
 		div.appendChild(container);
 	}
 
-	calculatePellValue(div, n);
+	calculateTribValue(div, n);
 	return div;
 }
 
-function calculatePellValue(node, n) {
+function calculateTribValue(node, n) {
 	var children = node.children;
 	console.log('num children: ' + children.length);
 
-	var childValue = [];
+	var value = 0;
 	if (children.length === 0) {
 		value = node.getAttribute('num');
 	} else {
@@ -49,15 +56,9 @@ function calculatePellValue(node, n) {
 			children = children[0].children;
 		}
 		for (var i = 0; i < children.length; i++) {
-			childValue.push(parseInt(children[i].getAttribute('num')));
+			value += parseInt(children[i].getAttribute('num'));
 		}
-
-		var value = 2*childValue[0]+childValue[1];
 	}
-	node.innerHTML = 'Pell(' + n + ')=' + value + node.innerHTML;
+	node.innerHTML = 'Trib(' + n + ')=' + value + node.innerHTML;
 	node.setAttribute('num', value.toString());
 }
-
-
-
-

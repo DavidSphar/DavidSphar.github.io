@@ -18,3 +18,5 @@ function setupPage() {
 
 setupPage();
 loadJs('fib.js');
+loadJs('trib.js');
+loadJs('pell.js');
